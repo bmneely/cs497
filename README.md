@@ -1,7 +1,7 @@
 ## Project Title
 Very Good Ecommerce Website
 
-## What is it going to do?
+## What Is It Going to Do?
 An ecommerce website that does the following:
 * Allow sellers to create a customizable storefronts to sell goods
 * Allow sellers to pick custom styles, colors, and pictures for their store front
@@ -19,7 +19,7 @@ TLDR: It's basically Etsy, but hopefully more customizable
 ## Target Audience
 The target audience is anyone who wants to sell anything to anyone (except for illegal things).
 
-## Data will it manage
+## Data It Will Manage
 * User accounts
 * User credit cards
 * User bank accounts
@@ -28,7 +28,7 @@ The target audience is anyone who wants to sell anything to anyone (except for i
 * Comments on items
 * API responses from Stripe
 
-## Web technologies will it use
+## Web Technologies
 * Ruby on Rails
 * Heroku
 * JavaScript
