@@ -14,14 +14,15 @@ gem 'devise'
 gem 'pundit'
 gem 'figaro'
 gem 'bootstrap-sass'
+gem 'annotate', '~> 2.6.6'
+gem 'faker'
+
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-end
-
-group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda'
+  gem "factory_girl_rails", "~> 4.0"
 end
