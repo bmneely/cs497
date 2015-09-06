@@ -1,0 +1,43 @@
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 50px;
+}
+
+.site-footer {
+  text-align: center;
+  background-color: #fff;
+}
+
+footer {
+  padding: 0 5px;
+  z-index: 4;
+  border-top: 1px solid #eaeaea;
+  background-color: #fff;
+  color: #777;
+}
+
+footer span {
+  margin-left: 50px;
+  line-height: 50px;
+  font-size: 12px;
+}
+
+footer a,
+footer a:visited {
+  color: #777;
+}
+
+footer a:hover {
+  color: black;
+  text-decoration: none;
+}
