@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -16,6 +15,9 @@ gem 'figaro'
 gem 'bootstrap-sass'
 gem 'annotate', '~> 2.6.6'
 gem 'faker'
+gem 'devise-bootstrap-views'
+gem 'gravtastic'
+gem 'font-awesome-rails'
 
 
 group :development, :test do
