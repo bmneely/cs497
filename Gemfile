@@ -18,6 +18,7 @@ gem 'faker'
 gem 'devise-bootstrap-views'
 gem 'gravtastic'
 gem 'font-awesome-rails'
+gem 'email_validator'
 
 
 group :development, :test do

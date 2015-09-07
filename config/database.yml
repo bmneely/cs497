@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: blog_development
+  database: vgew_development
   pool: 5
   username: benneely
   password:
@@ -9,7 +9,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: blog_test
+  database: vgew_development
   pool: 5
   username: benneely
   password:

@@ -19,6 +19,9 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string
+#  bio                    :text
+#  role                   :integer
 #
 
 class User < ActiveRecord::Base
@@ -28,4 +31,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   include Gravtastic
   gravtastic
+
+  before_save { self.role ||= :member }
+
+  has_one :shipping_address, class_name: 'Address'
+  has_one :billing_address, class_name: 'Address'
+  enum role: [:member, :seller, :admin]
+
+  validates :name, allow_blank: true, length: { minimum: 1, maximum: 25 }
+  validates :email, email: true, uniqueness: {
+    case_sensitive: false, message: "That email has already been registered." }
+
 end

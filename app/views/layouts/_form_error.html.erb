@@ -1,0 +1,11 @@
+<% if record.errors.any? %>
+  <div id="error_explanation" class='alert alert-danger'>
+    <h2>Uh oh, there was a problem</h2>
+    <ul>
+    <% record.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+    <br>
+  </div>
+<% end %>

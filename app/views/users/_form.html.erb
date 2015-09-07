@@ -1,0 +1,32 @@
+<%= form_for(@user, url: @user.new_record? ? users_path : user_path(@user)) do |f| %>
+  <%= render 'layouts/form_error', record: @user %>
+  <div class="row">
+    <div class="form-group col-sm-12">
+      <%= f.label :name, class: 'text-muted' %>
+      <%= f.text_field :name, placeholder: 'John Smith', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-12">
+      <%= f.label :email, class: 'text-muted' %>
+      <%= f.email_field :email, placeholder: 'jsmith@gmail.com', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="row divider"></div>
+  <div class="form-group">
+    <%= f.label :bio, class: 'text-muted' %>
+    <%= f.text_area :bio, class: 'form-control', :rows => "6" %>
+  </div>
+  <div class="row divider"></div>
+  <div class="actions form-group">
+    <%= f.submit @user.new_record? ? 'Create User' : 'Update User',
+                 class: 'btn btn-primary btn-lg btn-block' %>
+    <% if policy(@user).archive? and not @user.new_record? %>
+      <br>
+      <%= link_to "Delete User",
+                  archive_user_path(@user),
+                  class: 'btn btn-danger btn-lg btn-block',
+                  data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+<% end %>
