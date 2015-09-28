@@ -34,8 +34,9 @@ class User < ActiveRecord::Base
 
   before_save { self.role ||= :member }
 
-  has_one :shipping_address, class_name: 'Address'
-  has_one :billing_address, class_name: 'Address'
+  has_one :address
+  accepts_nested_attributes_for :address
+
   enum role: [:member, :seller, :admin]
 
   validates :name, allow_blank: true, length: { minimum: 1, maximum: 25 }
