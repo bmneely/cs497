@@ -1,0 +1,19 @@
+<div class="row well-white">
+  <div class="col-sm-2 room-on-top room-on-bottom center-my-children">
+    <%= avatar_for_user(@user) %>
+    <% if policy(@user).update? %>
+      <%= link_to "Edit Profile", edit_user_path(@user), class: 'btn btn-default btn-block room-on-top' %>
+    <% end %>
+  </div>
+  <div class="col-sm-10">
+    <h1><%= @user.name %></h1>
+    <h5 class="text-muted">
+      <%= @user.email %> | Joined <%= time_ago_in_words(@user.created_at) %> ago
+    </h5>
+    <div class="divider"></div>
+      <p class="bio text-muted room-on-top">
+        <%= @user.bio[0..100] unless @user.bio.blank? %>...
+      </p>
+    </div>
+  </div>
+</div>
