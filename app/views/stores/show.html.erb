@@ -1,0 +1,29 @@
+<div class="row well-white">
+  <div class="col-sm-10">
+    <h1><%= @store.name %></h1>
+    <%= image_tag(@store.storefront.url) if @store.storefront? %>
+    <div class="divider"></div>
+    <h5 class="text-muted">
+      <%= @store.description %>
+    </h5>
+    <div class="divider"></div>
+    <h1>
+      Items <small><%= link_to "#{ fa_icon('plus') }".html_safe, "new_user_store_path(@user)" %></small>
+    </h1>
+    <%# @store.stores.each do |store| %>
+      <%#= link_to store.name, store %>
+    <%# end %>
+  </div>
+  <div class="col-sm-2 room-on-top room-on-bottom center-my-children">
+    <% if policy(@store).update? %>
+      <%= link_to "Edit Store", edit_store_path(@store), class: 'btn btn-default btn-block room-on-top' %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="wide">
+    <div class="col-xs-5 line"><hr></div>
+    <div class="col-xs-2 logo">Logo</div>
+    <div class="col-xs-5 line"><hr></div>
+</div>

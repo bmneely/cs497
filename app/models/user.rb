@@ -32,14 +32,19 @@ class User < ActiveRecord::Base
   include Gravtastic
   gravtastic
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   before_save { self.role ||= :member }
 
   has_one :address
   accepts_nested_attributes_for :address
 
+  has_many :stores
+
   enum role: [:member, :seller, :admin]
 
-  validates :name, allow_blank: true, length: { minimum: 1, maximum: 25 }
+  validates :name, allow_blank: false, length: { minimum: 1, maximum: 25 }
   validates :email, email: true, uniqueness: {
     case_sensitive: false, message: "That email has already been registered." }
 

@@ -11,9 +11,17 @@
       <%= @user.email %> | Joined <%= time_ago_in_words(@user.created_at) %> ago
     </h5>
     <div class="divider"></div>
-      <p class="bio text-muted room-on-top">
-        <%= @user.bio[0..100] unless @user.bio.blank? %>...
-      </p>
+    <p class="bio text-muted room-on-top">
+      <%= @user.bio[0..100] unless @user.bio.blank? %>...
+    </p>
+    <div class="divider"></div>
+    <h1>
+      Stores <small><%= link_to "#{ fa_icon('plus') }".html_safe, new_user_store_path(@user) %></small>
+    </h1>
+    <div class="col-sm-12">
+      <% @user.stores.each do |store| %>
+        <%= image_tag(store.storefront.small.url) %> <%= link_to store.name, store %>
+      <% end %>
     </div>
   </div>
 </div>

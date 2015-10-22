@@ -1,0 +1,45 @@
+<%= form_for(@store, url: @store.new_record? ? user_stores_path : store_path(@store)) do |f| %>
+  <%= render 'layouts/form_error', record: @store %>
+
+  <div class="row">
+    <% if @store.storefront? %>
+      <div class="form-group col-sm-12">
+        <div class="form-group">
+          <%= f.label :current_storefront, class: 'text-muted' %><br>
+          <%= image_tag(@store.storefront.url ) %>
+        </div>
+      </div>
+    <% end %>
+    <div class="form-group col-sm-12">
+      <%= f.label :storefront, class: 'text-muted' %>
+      <%= f.file_field :storefront %>
+      <%= f.hidden_field :storefront_cache %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-12">
+      <%= f.label :name, class: 'text-muted' %>
+      <%= f.text_field :name, placeholder: 'Blamazon.com', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-12">
+      <%= f.label :description, class: 'text-muted' %>
+      <%= f.text_area :description, placeholder: 'Online retailer of books, movies, music and games along with electronics, toys, apparel, sports, tools, groceries and general home and garden items.', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="actions form-group">
+    <%= f.submit @store.new_record? ? 'Create Store' : 'Update store',
+                 class: 'btn btn-primary btn-lg btn-block' %>
+    <% if policy(@store).destroy? and not @store.new_record? %>
+      <br>
+      <%= link_to "Delete Store",
+                  store_path(@store),
+                  action: :destory,
+                  class: 'btn btn-danger btn-lg btn-block',
+                  data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+<% end %>

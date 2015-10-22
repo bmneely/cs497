@@ -20,7 +20,10 @@ gem 'gravtastic'
 gem 'font-awesome-rails'
 gem 'email_validator'
 gem 'will_toggle'
-
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'byebug'

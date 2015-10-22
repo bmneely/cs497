@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  resources :items
   devise_for :users
 
-  resources :users
+  resources :users do
+    resources :stores, only: [:new, :create]
+  end
+
+  resources :stores, except: [:new, :create]
 
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'
