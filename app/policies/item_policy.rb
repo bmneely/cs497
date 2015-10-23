@@ -7,7 +7,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? || item.store.user == user
+    user && (user.admin? || item.store.user == user)
   end
 
   def edit?
@@ -15,6 +15,6 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin? || item.store.user == user
+    user && (user.admin? || item.store.user == user)
   end
 end

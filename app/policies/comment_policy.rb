@@ -15,7 +15,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? || comment.user == user
+    user && (user.admin? || comment.user == user)
   end
 
   def edit?
@@ -23,6 +23,6 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin? || comment.user == user
+    user && (user.admin? || comment.user == user)
   end
 end
