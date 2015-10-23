@@ -22,6 +22,7 @@
 #  name                   :string
 #  bio                    :text
 #  role                   :integer
+#  slug                   :string
 #
 
 class User < ActiveRecord::Base
@@ -41,6 +42,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :address
 
   has_many :stores
+  has_many :users
 
   enum role: [:member, :seller, :admin]
 

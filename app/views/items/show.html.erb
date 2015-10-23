@@ -3,6 +3,17 @@
     <h1 class="center-my-children"><%= @store.name %> </h1>
     <div class="container">
       <%= render 'items/item' %>
+      <div>
+        <h3>Comments</h3>
+        <div class='js-comments col-sm-10'>
+          <%= render @item.comments %>
+        </div>
+      </div>
+      <% if current_user %>
+        <div class='new-comment col-sm-12'>
+          <%= render 'comments/form', comment: Comment.new, item: @item %>
+        </div>
+      <% end %>
     </div>
   </div>
   <%= render 'stores/side_bar' %>

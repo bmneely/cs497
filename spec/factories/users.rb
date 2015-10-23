@@ -22,6 +22,7 @@
 #  name                   :string
 #  bio                    :text
 #  role                   :integer
+#  slug                   :string
 #
 
 FactoryGirl.define do

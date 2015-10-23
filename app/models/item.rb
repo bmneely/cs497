@@ -9,11 +9,13 @@
 #  store_id    :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  slug        :string
+#  image       :string
 #
 
 class Item < ActiveRecord::Base
   belongs_to :store
-  has_many :items
+  has_many :comments
 
   mount_uploader :image, ImageUploader
 
