@@ -14,4 +14,9 @@
 class Item < ActiveRecord::Base
   belongs_to :store
   has_many :items
+
+  mount_uploader :image, ImageUploader
+
+  extend FriendlyId
+  friendly_id :image, use: :slugged
 end

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :stores, only: [:new, :create]
   end
 
-  resources :stores, except: [:new, :create]
+  resources :stores, except: [:new, :create] do
+    resources :items
+  end
 
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'

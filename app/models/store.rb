@@ -12,11 +12,12 @@
 
 class Store < ActiveRecord::Base
   belongs_to :user
+  has_many :items
 
   mount_uploader :storefront, StorefrontUploader
 
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  validates :name, allow_blank: false, length: { minimum: 1, maximum: 25 }
+  validates :name, allow_blank: false, length: { minimum: 1, maximum: 40 }
 end

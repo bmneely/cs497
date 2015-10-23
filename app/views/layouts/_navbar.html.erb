@@ -14,7 +14,7 @@
   <% if current_user %>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li class="top-nav-item"><%= link_to "#{ fa_icon('plus') } &nbsp; Stores".html_safe, "#" %></li>
+        <li class="top-nav-item"><%= link_to "Stores", stores_path %></li>
         <li class="top-nav-item"><%= link_to "#{ fa_icon('shopping-cart') } &nbsp; Cart".html_safe, "#" %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -41,7 +41,6 @@
   <% else %>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
-
       <li>
         <%= link_to "#{ fa_icon('sign-in') } &nbsp; Sign In".html_safe,
                     new_user_session_path %>

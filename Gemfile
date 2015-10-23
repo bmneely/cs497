@@ -24,6 +24,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'friendly_id', '~> 5.1.0'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug'
