@@ -40,7 +40,9 @@
     </div>
   <% else %>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
     <ul class="nav navbar-nav navbar-right">
+      <li class="top-nav-item"><%= link_to "Stores", stores_path %></li>
       <li>
         <%= link_to "#{ fa_icon('sign-in') } &nbsp; Sign In".html_safe,
                     new_user_session_path %>

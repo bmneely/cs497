@@ -1,0 +1,8 @@
+<%= link_to store do %>
+  <%= div_for(store, class: 'col-lg-3 col-sm-3 col-xs-6 col-xxs-12') do %>
+    <img src="<%= store.storefront.url %>" alt="<%= store.name %>" width="100%" class="preview" />
+    <div class="col-lg-12 center-my-children">
+      <h5 class='title text-muted'><%= store.name %></h5>
+    </div>
+  <% end %>
+<% end %>
