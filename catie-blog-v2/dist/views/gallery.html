@@ -1,0 +1,12 @@
+<div class="gallery">
+  <div ng-repeat="image in gallery.images">
+    <div class="gallery-picture-container">
+      <div class="gallery-picture">
+        <img class="gallery-picture" ng-src="{{ image.location }}" alt="{{ image.caption }}">
+      </div>
+      <div class="gallery-picture-caption">
+        {{ image.caption}}
+      </div>
+    </div>
+  </div>
+</div>

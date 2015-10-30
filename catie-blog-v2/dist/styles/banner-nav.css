@@ -1,0 +1,169 @@
+.nav {
+    background-color: #778899;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 0px;
+  background-color: #778899;
+  font-size: 1.3em;
+}
+
+span #login-area {
+  background-color: #778899;
+  font-size: 1.3em;
+}
+
+.nav li {
+  display: inline;
+  margin-left: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+li.active {
+  background-color: white;
+}
+
+.nav a:link {
+  color:black;
+  text-decoration: none;
+}
+
+.float-right {
+  float: right;
+}
+
+.nav a:visited, a:hover {
+  text-decoration: none;
+  color:black;
+}
+
+
+#logo{
+  margin-left: 30px;
+  margin-top: 40px;
+  display:inline;
+  float:left;
+}
+
+.banner {
+  background-image: url("/assets/images/banner.jpg");
+  margin-left: 250px;
+  height: 250px;
+  background-color: white;
+  overflow:auto;
+  overflow-x:hidden;
+}
+
+#blog-name {
+  float:left;
+  margin-top:0px;
+  padding-right:25px;
+  padding-left: 25px;
+  padding-top:180px;
+  font-style: bold;
+  color: black;
+}
+
+.sign-in {
+  position: absolute;
+  margin: -15px 15px;
+  right: 0;
+  display: none;
+  width: 170px;
+  border: dotted 1px #778899;
+  border-radius: 7px;
+  background-color: white;
+}
+
+.sign-in-link a:link {
+  color:blue;
+  text-decoration: none;
+}
+
+.sign-in-link a:visited, a:hover{
+  color:blue;
+  text-decoration: none;
+}
+
+.close-icon {
+  float: right;
+  text-decoration: none;
+  padding: 1px 4px;
+}
+
+.sign-in-form {
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.sign-up {
+  position: absolute;
+  display: none;
+/*  height: 375px;
+*/  margin: -15px 15px;
+  width: 170px;
+  border: dotted 1px #778899;
+  border-radius: 7px;
+  background-color: white;
+  right: 0;
+}
+
+.sign-up-form {
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.log-in-text {
+  padding-right: 15px;
+}
+
+input {
+  border-radius: 7px;
+  border: 1px solid #999;
+  height: 2.5em;
+  font-size: .8em;
+}
+f
+label {
+  display: block;
+}
+
+input.submit {
+  margin-top:3px;
+  font-family: "Bubbler One", sans-serif;
+  font-size: 1.1em;
+  background: white;
+  border: none;
+}
+
+input.submit:hover {
+  background:#fff;
+  color:#778899;
+  cursor: pointer;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #333;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: /*your box-shadow*/,0 0 0 50px white inset;
+    -webkit-text-fill-color: #333;
+}
+
+.hand-pointer {
+  cursor: pointer;
+}
+
+.sign-up-label  {
+  padding-right: 50px;
+}
+
+#show-me {
+  display:block;
+}
