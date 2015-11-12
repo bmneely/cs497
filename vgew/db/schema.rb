@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023031842) do
+ActiveRecord::Schema.define(version: 20151112230555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 20151023031842) do
     t.string   "city"
     t.string   "state"
     t.integer  "zip"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cart_items", ["item_id"], name: "index_cart_items_on_item_id", using: :btree
+  add_index "cart_items", ["user_id"], name: "index_cart_items_on_user_id", using: :btree
+
+  create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,6 +76,17 @@ ActiveRecord::Schema.define(version: 20151023031842) do
   end
 
   add_index "items", ["slug"], name: "index_items_on_slug", unique: true, using: :btree
+
+  create_table "purchased_items", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "purchased_items", ["item_id"], name: "index_purchased_items_on_item_id", using: :btree
+  add_index "purchased_items", ["user_id"], name: "index_purchased_items_on_user_id", using: :btree
 
   create_table "stores", force: :cascade do |t|
     t.string   "name"
@@ -100,4 +127,8 @@ ActiveRecord::Schema.define(version: 20151023031842) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
+  add_foreign_key "cart_items", "items"
+  add_foreign_key "cart_items", "users"
+  add_foreign_key "purchased_items", "items"
+  add_foreign_key "purchased_items", "users"
 end
