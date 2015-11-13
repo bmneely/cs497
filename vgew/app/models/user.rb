@@ -49,7 +49,6 @@ class User < ActiveRecord::Base
 
   enum role: [:member, :seller, :admin]
 
-  validates :name, allow_blank: false, length: { minimum: 1, maximum: 25 }
   validates :email, email: true, uniqueness: {
     case_sensitive: false, message: "That email has already been registered." }
 
