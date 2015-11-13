@@ -1,0 +1,49 @@
+<%= form_for(@customer, html: { class: :stripe_billing_form }) do |f| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2 class="no-room no-cushion">
+        Whoops, there was a problem.
+      </h2>
+      <ul class="cushion">
+      <% @customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <div id="error_explanation"></div>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.label :first_name, class: 'text-muted' %>
+      <%= f.text_field :first_name, class: 'form-control' %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.label :last_name, class: 'text-muted' %>
+      <%= f.text_field :last_name, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, class: 'text-muted' %>
+    <%= f.text_field :address, placeholder: '123 Example Ln.', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :address_2, class: 'form-control' %>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.label :apt_or_suite, 'Apartment or Suite', class: 'text-muted' %>
+      <%= f.text_field :apt_or_suite, class: 'form-control' %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.label :zipcode, class: 'text-muted' %>
+      <%= f.text_field :zipcode, class: 'form-control' %>
+    </div>
+  </div>
+  <%= f.hidden_field :stripe_card_token, id: :stripe_token %>
+  <%= f.hidden_field :last_4_cc, id: :last_4_cc %>
+  <div class="actions form-group room-on-top">
+    <%= f.submit "Submit Billing Information",
+                 class: 'btn btn-primary btn-block form-control' %>
+  </div>
+<% end %>

@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: carts
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Cart < ActiveRecord::Base
   belongs_to :user
   has_many :cart_items
@@ -24,15 +34,10 @@ class Cart < ActiveRecord::Base
   def buy!
     return if empty?
 
-    cart_items.each do |item|
-      PurchasedItem.create!(user: user, item: item, purchase_price: item.price)
-      puts "$$: User #{ user.id } purchased item #{ item.id } for #{ item.price }" unless Rails.env.test?
-      item.destroy
+    cart_items.each do |cart_item|
+      PurchasedItem.create!(user: user, item: cart_item.item, price: cart_item.price)
+      puts "$$: User #{ user.id } purchased item #{ cart_item.id } for #{ cart_item.price }" unless Rails.env.test?
+      cart_item.destroy
     end
-    send_purchase_emails
-  end
-
-  def send_purchase_emails
-    MoneyMailer.purchase_email(self).deliver
   end
 end

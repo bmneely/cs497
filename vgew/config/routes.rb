@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   end
   get 'cart', to: 'cart#show'
 
+  resources :customers, except: [:index, :destroy, :show]
+
+  resources :purchased_items, only: [:index, :show]
 
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'

@@ -26,4 +26,21 @@ class CartController < ApplicationController
 
     redirect_to @cart
   end
+
+  def checkout
+    if @cart.empty?
+      flash[:notice] = "There's nothing in your cart!"
+      redirect_to @cart and return
+    end
+
+    if current_user.customer
+      @cart.buy!
+      flash[:success] = "Thank you for your purchase, you will be invoiced soon."
+      redirect_to purchased_items_path
+    else
+      session[:proceed_to_checkout] = true
+      flash[:notice] = "Before checkout, we'll need you to please fill out your billing information."
+      redirect_to new_customer_path
+    end
+  end
 end

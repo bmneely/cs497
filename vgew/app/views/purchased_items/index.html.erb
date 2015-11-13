@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 well-white">
+      <% if @purchased_items.any? %>
+        <h1 class='text-muted room-on-bottom'>Purchase History</h1>
+        <table class="table">
+          <tbody>
+            <% @purchased_items.each do |purchased_item| %>
+              <tr class="spacious-y">
+                <td>
+                  <%= link_to item_path(purchased_item) do %>
+                    <img src="<%= purchased_item.item.image %>" width="150" class="img-thumbnail" />
+                  <% end %>
+                </td>
+                <td>
+                  <%= purchased_item.item.name %> <br>
+                  <span class="text-muted small">
+                    Purchased <%= time_ago_in_words(purchased_item.created_at) %> ago
+                  </span>
+                </td>
+                <td>
+                  <h4><%= number_to_currency(purchased_item.price, unit: "$") %></h4>
+                </td>
+                <td class="btn-group">
+                  <%= link_to "#{purchased_item.item.store.name} Store", store_path(purchased_item.item.store), class: 'btn btn-default' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="center-my-children">
+          <%= will_paginate @purchased_items, renderer: BootstrapPagination::Rails %>
+        </div>
+      <% else %>
+        <div class="center-my-children cushion-y">
+          <p class="h1 huge text-muted room-on-top"><%= fa_icon('cloud-download') %></p>
+          <h1 class="text-muted">You haven't purchased any images.</h1>
+          <p class="lead">
+            <div class="btn-group">
+              <%= link_to 'View Cart',
+                          cart_path(@cart),
+                          class: 'btn btn-lg btn-default room-on-top' %>
+              <%= link_to 'View Images',
+                          images_path,
+                          class: 'btn btn-lg btn-primary room-on-top' %>
+            </div>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

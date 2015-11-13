@@ -1,0 +1,5 @@
+<address>
+  <strong><%= current_user.customer.full_name %></strong><br>
+  <em><%= current_user.email %></em><br>
+  <%= current_user.customer.full_address.html_safe %>
+</address>

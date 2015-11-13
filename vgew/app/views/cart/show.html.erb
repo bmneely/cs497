@@ -23,7 +23,7 @@
         <small class="text-muted text-mini"><em>Invoiced by VGEW</em></small>
       </div>
       <div class="clearfix"></div>
-      <%#= link_to 'Checkout', checkout_cart_path(@cart), class: 'btn btn-primary btn-block btn-lg room-on-top' %>
+      <%= link_to 'Checkout', checkout_cart_path(@cart), class: 'btn btn-primary btn-block btn-lg room-on-top' %>
     <% else %>
       <div class="center-my-children cushion-y">
         <p class="h1 huge text-muted room-on-top"><%= fa_icon('shopping-cart') %></p>
@@ -33,7 +33,7 @@
                       stores_path,
                       class: 'btn btn-lg btn-primary room-on-top' %>
           <%= link_to 'Purchased Items',
-                      "purchased_items_path",
+                      purchased_items_path,
                       class: 'btn btn-lg btn-default room-on-top' %>
         </div>
       </div>

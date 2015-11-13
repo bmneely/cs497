@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112230555) do
+ActiveRecord::Schema.define(version: 20151113050604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,22 @@ ActiveRecord::Schema.define(version: 20151112230555) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "customers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "stripe_token"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "last_4_cc"
+    t.string   "address"
+    t.string   "address_2"
+    t.string   "apt_or_suite"
+    t.string   "zipcode"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "customers", ["user_id"], name: "index_customers_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -129,6 +145,7 @@ ActiveRecord::Schema.define(version: 20151112230555) do
 
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "items"
+  add_foreign_key "customers", "users"
   add_foreign_key "purchased_items", "items"
   add_foreign_key "purchased_items", "users"
 end

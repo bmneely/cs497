@@ -42,7 +42,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :address
 
   has_one :cart, dependent: :destroy
-  
+  has_one :customer, dependent: :destroy
+
   has_many :stores
   has_many :purchased_items
 
