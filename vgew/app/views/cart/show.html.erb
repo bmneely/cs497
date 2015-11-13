@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 well-white">
+    <% if @cart.cart_items.any? %>
+      <h1>Your shopping cart.</h1>
+      <table class="table room-on-top">
+        <thead>
+          <tr class='text-muted'>
+            <th></th>
+            <th>Details</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @cart.cart_items %>
+        </tbody>
+      </table>
+      <div class="col-md-6 room-on-top">
+        <%= render current_user.customer if current_user.customer %>
+      </div>
+      <div class="col-md-6 right-my-children room-on-top">
+        <strong>Total: <%= number_to_currency(@cart.total, unit: '$') %></strong><br>
+        <small class="text-muted text-mini"><em>Invoiced by VGEW</em></small>
+      </div>
+      <div class="clearfix"></div>
+      <%#= link_to 'Checkout', checkout_cart_path(@cart), class: 'btn btn-primary btn-block btn-lg room-on-top' %>
+    <% else %>
+      <div class="center-my-children cushion-y">
+        <p class="h1 huge text-muted room-on-top"><%= fa_icon('shopping-cart') %></p>
+        <h1 class="text-muted">There's nothing in your cart.</h1>
+        <div class="btn-group">
+          <%= link_to 'View Stores',
+                      stores_path,
+                      class: 'btn btn-lg btn-primary room-on-top' %>
+          <%= link_to 'Purchased Items',
+                      "purchased_items_path",
+                      class: 'btn btn-lg btn-default room-on-top' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

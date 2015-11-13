@@ -41,8 +41,10 @@ class User < ActiveRecord::Base
   has_one :address
   accepts_nested_attributes_for :address
 
+  has_one :cart, dependent: :destroy
+  
   has_many :stores
-  has_many :users
+  has_many :purchased_items
 
   enum role: [:member, :seller, :admin]
 

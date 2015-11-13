@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="top-nav-item"><%= link_to "Stores", stores_path %></li>
-        <li class="top-nav-item"><%= link_to "#{ fa_icon('shopping-cart') } &nbsp; Cart".html_safe, "#" %></li>
+        <li class="top-nav-item"><%= link_to "<span class='badge'>#{ @cart.count if @cart.count > 0 }</span> #{ fa_icon('shopping-cart') }".html_safe, @cart %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <%= avatar_for_user(current_user, 30) %>

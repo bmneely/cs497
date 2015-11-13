@@ -11,7 +11,7 @@
       </div>
       <div class="col-sm-3">
         <h5 class="text-muted">
-          <%= link_to "Add to Cart &nbsp; #{ fa_icon('shopping-cart') }".html_safe, "#",  class: 'btn btn-default btn-block room-on-top' %>
+          <%= add_or_remove_image_from_cart_button(@item, 'btn btn-primary btn-sm btn-block') %>
         </h5>
       </div>
     </div>

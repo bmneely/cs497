@@ -1,0 +1,20 @@
+<tr>
+  <td>
+    <%= link_to item_path(cart_item.item) do %>
+      <img src="<%= cart_item.item.image %>" width="150" class="img-thumbnail" />
+    <% end %>
+  </td>
+  <td>
+    <%= cart_item.item.name %> <br>
+    <small>
+      <%= link_to cart_item.item.store, class: 'influencer-link text-muted little-room-on-top' do %>
+      <% end %>
+    </small>
+  </td>
+  <td>
+    <%= number_to_currency(cart_item.price, unit: "$") %>
+  </td>
+  <td>
+    <%= link_to('Remove', remove_item_cart_path(@cart, item_id: cart_item.item.id), class: 'btn btn-default btn-sm pull-right') %>
+  </td>
+</tr>
