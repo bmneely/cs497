@@ -1,7 +1,7 @@
 <div class='room-on-top room-on-bottom center-my-children sidebar-offcanvas' id='sidebar' role='navigation'>
   <ul class="nav">
     <li>
-      <%= link_to 'Home', store, class: 'btn btn-default btn-block room-on-top' %>
+      <%= link_to 'Home', store, class: 'btn btn-block room-on-top' %>
       <% if policy(Favorite.new).create? %>
           <%= render partial: 'favorites/favorite', locals: { store: store } %>
       <% end %>
