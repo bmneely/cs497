@@ -1,19 +1,16 @@
 <div class="row well-white">
   <div class="col-sm-10">
-    <h2 class="text-muted"><%= @item.name %> <small>$<%= @item.price %></small></h2>
+    <h2 class="text-muted">
+      <%= @item.name %>
+      <small>
+        $<%= @item.price %>
+      </small>
+      <%= add_or_remove_image_from_cart_button(@item, 'btn btn-primary btn-sm') %>
+    </h2>
     <%= image_tag(@item.image.url, class: :square) if @item.image? %>
     <div class="divider"></div>
-    <div class="row">
-      <div class="col-sm-7">
-        <h5 class="text-muted">
-          <%= markdown_to_html(@item.description) %>
-        </h5>
-      </div>
-      <div class="col-sm-3">
-        <h5 class="text-muted">
-          <%= add_or_remove_image_from_cart_button(@item, 'btn btn-primary btn-sm btn-block') %>
-        </h5>
-      </div>
-    </div>
+    <h5 class="text-muted">
+      <%= markdown_to_html(@item.description) %>
+    </h5>
   </div>
 </div>

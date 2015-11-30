@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :stores, except: [:new, :create] do
     resources :items
+    resources :favorites, only: [:create, :destroy]
   end
 
   resources :items, only: [:show] do
@@ -28,8 +29,6 @@ Rails.application.routes.draw do
   resources :customers, except: [:index, :destroy, :show]
 
   resources :purchased_items, only: [:index, :show]
-
-  resources :favorites, only: [:create, :destroy]
 
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'

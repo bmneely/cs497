@@ -1,38 +1,38 @@
 <div class='col-sm-2 room-on-top room-on-bottom center-my-children sidebar-offcanvas' id='sidebar' role='navigation'>
   <ul class="nav">
-    <h2>Links</h2>
-    <li class="active">
-      <%= link_to 'Home', @store %>
-    </li>
     <li>
-      <a href="#">
+      <a href='<%= "#{ @store.facebook_url }" %>'>
         <%= image_tag('facebook.png') %></br>
         Facebook
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href='<%= "#{ @store.instagram_url }" %>'>
         <%= image_tag('instagram.png') %></br>
         Instagram
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href='<%= "#{ @store.twitter_url }" %>'>
         <%= image_tag('twitter.png') %></br>
         Twitter
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href='<%= "#{ @store.tumblr_url }" %>'>
         <%= image_tag('tumblr.png') %></br>
         Tumblr
       </a>
     </li>
-    <% if policy(@store).update? %>
-      <li>
-        <%= link_to "Edit Store", edit_store_path(@store), class: 'btn btn-default btn-block room-on-top' %>
-        <%= link_to "Delete Store", store_path(@store), action: :destroy, class: 'btn btn-danger btn-block room-on-top' %>
-      </li>
-    <% end %>
+    <li>
+      <%= link_to 'Home', @store, class: 'btn btn-default btn-block room-on-top' %>
+      <% if policy(Favorite.new).create? %>
+          <%= render partial: 'favorites/favorite', locals: { store: @store } %>
+      <% end %>
+      <% if policy(@store).update? %>
+          <%= link_to "Edit Store", edit_store_path(@store), class: 'btn btn-default btn-block room-on-top' %>
+          <%= link_to "Delete Store", store_path(@store), action: :destroy, class: 'btn btn-danger btn-block room-on-top' %>
+      <% end %>
+    </li>
   </ul>
 </div>

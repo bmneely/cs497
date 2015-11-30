@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>New item in "<%= @store.name %>"</h1>
+    <h2 class="text-muted"><%= @item.name %> <small>$<%= @item.price %></small></h2>
+    <img src="<%= @item.image.url %>" width="50" class="img-thumbnail" /><br>
+    <div class="divider"></div>
+    <div class="row">
+      <div class="col-sm-7">
+        <h5 class="text-muted">
+          <%= markdown_to_html(@item.description) %>
+        </h5>
+      </div>
+    </div>
+      <%= link_to "View item in store", item_url(@item) %>
+    </p>
+  </body>
+</html>

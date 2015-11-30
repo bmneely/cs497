@@ -1,6 +1,8 @@
 <div class="row well-white">
   <div class="col-sm-10">
-    <h1 class="center-my-children"><%= @store.name %> </h1>
+    <h1 class="center-my-children">
+      <%= @store.name %>
+    </h1>
     <%= image_tag(@store.storefront.url, class: :wide) if @store.storefront? %>
     <div class="divider"></div>
     <h5 class="text-muted">
