@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
     @new_comment = Comment.new
 
     if @comment.save
-      flash[:notice] = "Comment saved successfully."
+      flash.now[:notice] = "Comment saved successfully."
     else
-      flash[:error] = "Comment failed to save."
+      flash.now[:error] = "Comment failed to save."
     end
 
     respond_to do |format|
@@ -22,9 +22,9 @@ class CommentsController < ApplicationController
     @comment = @item.comments.find(params[:id])
 
     if @comment.destroy
-      flash[:notice] = "Comment was deleted."
+      flash.now[:notice] = "Comment was deleted."
     else
-      flash[:error] = "Comment couldn't be deleted. Try again."
+      flash.now[:error] = "Comment couldn't be deleted. Try again."
     end
 
     respond_to do |format|

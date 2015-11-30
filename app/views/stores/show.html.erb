@@ -2,6 +2,10 @@
   <div class="col-sm-10">
     <h1 class="center-my-children">
       <%= @store.name %>
+      <% if policy(@store).update? %>
+        <%= link_to 'Edit', edit_store_path(@store), class: 'btn btn-default' %>
+        <%= link_to 'Delete', store_path(@store), action: :destroy, class: 'btn btn-danger' %>
+      <% end %>
     </h1>
     <%= image_tag(@store.storefront.url, class: :wide) if @store.storefront? %>
     <div class="divider"></div>

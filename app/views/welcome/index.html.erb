@@ -1,2 +1,20 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<center>
+  <div id="welcome-carsol" class="owl-carousel owl-theme">
+    <div class="item"><img src="assets/car-1.jpeg" alt="The Last of us"></div>
+    <div class="item"><img src="assets/car-2.jpeg" alt="GTA V"></div>
+    <div class="item"><img src="assets/car-3.jpeg" alt="Mirror Edge"></div>
+    <div class="item"><img src="assets/car-4.jpeg" alt="Mirror Edge"></div>
+    <div class="item"><img src="assets/car-5.jpeg" alt="Mirror Edge"></div>
+  </div>
+</center>
+
+<script>
+  $(document).ready(function() {
+    $("#welcome-carsol").owlCarousel({
+      navigation : true,
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem:true
+    });
+  });
+</script>

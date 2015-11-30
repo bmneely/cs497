@@ -28,6 +28,7 @@ gem 'redcarpet'
 gem 'stripe'
 gem 'will_paginate-bootstrap'
 gem 'newrelic_rpm'
+gem 'owlcarousel-rails'
 
 group :development, :test do
   gem 'byebug'
