@@ -1,4 +1,6 @@
 <% @items.each do |item| %>
   <%= render partial: 'items/item_preview', locals: {item: item} %>
 <% end %>
-<%= will_paginate @items %>
+<center>
+  <%= will_paginate @items %>
+</center>

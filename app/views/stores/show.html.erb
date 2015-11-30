@@ -9,12 +9,16 @@
       <%= @store.description %>
     </h5>
     <div class="divider"></div>
-    <h1>
-      Items <small><%= link_to "#{ fa_icon('plus') }".html_safe, new_store_item_path(@store) %></small>
-    </h1>
-    <% @store.items.each do |item| %>
-      <%= render partial: 'items/item_preview', locals: {item: item} %>
-    <% end %>
   </div>
-  <%= render 'stores/side_bar' %>
+  <div class="col-sm-2">
+    <%= render partial: 'stores/side_bar', locals: { store: @store } %>
+  </div>
+</div>
+<div class="row well-white container">
+  <h1>
+    Items <small><%= link_to "#{ fa_icon('plus') }".html_safe, new_store_item_path(@store) %></small>
+  </h1>
+  <% policy_scope(@store.items).each do |item| %>
+    <%= render partial: 'items/item_preview', locals: {item: item} %>
+  <% end %>
 </div>

@@ -14,7 +14,7 @@ class ItemPolicy < ApplicationPolicy
     update?
   end
 
-  def destroy?
+  def archive?
     user && (user.admin? || item.store.user == user)
   end
 end

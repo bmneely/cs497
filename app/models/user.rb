@@ -44,10 +44,10 @@ class User < ActiveRecord::Base
   has_one :cart, dependent: :destroy
   has_one :customer, dependent: :destroy
 
-  has_many :stores
-  has_many :purchased_items
+  has_many :stores, dependent: :destroy
+  has_many :purchased_items, dependent: :destroy
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
   enum role: [:member, :seller, :admin]
 

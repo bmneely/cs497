@@ -6,8 +6,13 @@
         $<%= @item.price %>
       </small>
       <%= add_or_remove_image_from_cart_button(@item, 'btn btn-primary btn-sm') %>
+      <% if policy(@item).archive? %>
+        <%= link_to "Archive", archive_item_path(@item), method: :post, data: { confirm: 'Are you sure you want to archive this item?' }, class: 'btn btn-warning btn-sm' %>
+        <%= link_to "Edit", edit_item_path(@item), class: 'btn btn-sm' %>
+        <%= link_to "Delete", @item, method: :delete, data: { confirm: 'Are you sure you want to delete this item?' }, class: 'btn btn-danger btn-sm' %>
+      <% end %>
     </h2>
-    <%= image_tag(@item.image.url, class: :square) if @item.image? %>
+    <%= image_tag(@item.image.url(:display), class: :square) if @item.image? %>
     <div class="divider"></div>
     <h5 class="text-muted">
       <%= markdown_to_html(@item.description) %>

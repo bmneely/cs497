@@ -1,10 +1,15 @@
 <%= link_to item do %>
   <%= div_for(item, class: 'col-lg-3 col-sm-3 col-xs-6 col-xxs-12') do %>
-    <img src="<%= item.image.url %>" alt="<%= item.name %>" width="100%" class="preview" />
+    <img src="<%= item.image.url(:preview) %>" alt="<%= item.name %>" width="100%" class="preview" />
     <div class="col-lg-12 center-my-children">
       <h5 class='title text-muted'><%= item.name %>
-        <span class="label label-primary"><%= number_to_currency(item.price, unit: "$") %></span>
+        <% if item.archived %>
+          <span class="label label-danger">Archived</span>
+        <% else %>
+          <span class="label label-primary"><%= number_to_currency(item.price, unit: "$") %></span>
+        <% end %>
       </h5>
     </div>
+
   <% end %>
 <% end %>

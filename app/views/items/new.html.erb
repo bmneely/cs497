@@ -6,5 +6,5 @@
       <%= render 'items/form' %>
     </div>
   </div>
-  <%= render 'stores/side_bar' %>
+  <%= render partial: 'stores/side_bar', locals: { store: @store } %>
 </div>

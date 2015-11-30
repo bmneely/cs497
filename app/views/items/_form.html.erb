@@ -1,4 +1,4 @@
-<%= form_for(@item, url: store_items_path(@store)) do |f| %>
+<%= form_for(@item, url: store_items_path(@item.store)) do |f| %>
   <%= render 'layouts/form_error', record: @item %>
 
   <div class="row">

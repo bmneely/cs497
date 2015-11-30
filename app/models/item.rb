@@ -14,9 +14,10 @@
 #
 
 class Item < ActiveRecord::Base
-
   belongs_to :store
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
+
   after_create :send_favorite_emails
   mount_uploader :image, ImageUploader
 
@@ -24,6 +25,11 @@ class Item < ActiveRecord::Base
   friendly_id :image, use: :slugged
 
   self.per_page = 16
+
+  def archive!
+    self.archived = true
+    self.save!
+  end
 
   private
 

@@ -5,14 +5,15 @@ Rails.application.routes.draw do
     resources :stores, only: [:new, :create, :index]
   end
 
-  resources :items, only: :index
-
   resources :stores, except: [:new, :create] do
-    resources :items
+    resources :items, only: [:create, :new]
     resources :favorites, only: [:create, :destroy]
   end
 
-  resources :items, only: [:show] do
+  resources :items, except: [:create, :new] do
+    member do
+      post :archive
+    end
     resources :comments, only: [:create, :destroy]
   end
 
