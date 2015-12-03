@@ -1,5 +1,8 @@
 <div class="row well-white">
-  <h1>Stores</h1>
+  <h1>
+    Stores
+    <%= link_to "Create Store", new_user_store_path(@user), class: 'btn btn-default' if @user %>
+  </h1>
     <% @stores.each do |store | %>
       <%= render partial: 'stores/store_preview', locals: {store: store} %>
     <% end %>

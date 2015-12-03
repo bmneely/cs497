@@ -4,16 +4,22 @@
       <h1 class="center-my-children">
         <%= @store.name %> Blog
       </h1>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <%= image_tag(@store.storefront.url(:preview), class: 'blog-storefront') if @store.storefront? %>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-6">
         <em><%= @store.description %></em>
       </div>
       <div class="col-sm-12">
         <h1>
           Posts
+          <% if policy(@blog).update? %>
+            <%= link_to "Create Post", new_blog_post_path(@blog), class: 'btn btn-default' %>
+          <% end %>
         </h1>
+        <% @blog.posts.each do |post| %>
+          <%= render partial: 'posts/post_preview', locals: {post: post} %>
+        <% end %>
       </div>
     </div>
     <div class="col-sm-2">

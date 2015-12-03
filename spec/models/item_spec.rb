@@ -11,6 +11,7 @@
 #  updated_at  :datetime         not null
 #  slug        :string
 #  image       :string
+#  archived    :boolean
 #
 
 require 'rails_helper'

@@ -27,7 +27,7 @@ class Store < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   validates :name, allow_blank: false, length: { minimum: 1, maximum: 40 }
-  validates :description, allow_blank: false, length: { minimum: 1, maximum: 500 }
+  validates :description, allow_blank: false, length: { minimum: 1 }
 
   validates_format_of :facebook_url, :with => URI::regexp(%w(http https)), allow_blank: true
   validates_format_of :instagram_url, :with => URI::regexp(%w(http https)), allow_blank: true
@@ -35,6 +35,6 @@ class Store < ActiveRecord::Base
   validates_format_of :tumblr_url, :with => URI::regexp(%w(http https)), allow_blank: true
 
   def blog
-    super || create_blog
+    super || create_blog(name: name)
   end
 end

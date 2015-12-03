@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   def new
     @store = Store.friendly.find(params[:store_id])
-    @item = Item.new
+    @item = @store.items.new
   end
 
   def show

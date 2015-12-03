@@ -3,14 +3,14 @@
 
   <div class="row">
     <% if @item.image? %>
-      <div class="form-group col-sm-10">
+      <div class="form-group col-sm-12">
         <div class="form-group">
           <%= f.label :image, class: 'text-muted' %><br>
           <%= image_tag(@item.image.url ) %>
         </div>
       </div>
     <% end %>
-    <div class="form-group col-sm-10">
+    <div class="form-group col-sm-12">
       <%= f.label :image, class: 'text-muted' %>
       <%= f.file_field :image %>
       <%= f.hidden_field :image_cache %>
@@ -18,25 +18,25 @@
   </div>
 
   <div class="row">
-    <div class="form-group col-sm-10">
+    <div class="form-group col-sm-12">
       <%= f.label :name, class: 'text-muted' %>
       <%= f.text_field :name, placeholder: 'Blamazon.com', class: 'form-control' %>
     </div>
   </div>
   <div class="row">
-    <div class="form-group col-sm-10">
+    <div class="form-group col-sm-12">
       <%= f.label :description, class: 'text-muted' %>
       <%= f.text_area :description, placeholder: 'Online retailer of books, movies, music and games along with electronics, toys, apparel, sports, tools, groceries and general home and garden items.', class: 'form-control' %>
     </div>
   </div>
   <div class="row">
-    <div class="form-group col-sm-10">
+    <div class="form-group col-sm-12">
       <%= f.label :price, class: 'text-muted' %>
       <%= f.number_field :price, placeholder: 99, class: 'form-control' %>
     </div>
   </div>
 
-  <div class="actions form-group col-sm-10">
+  <div class="actions form-group col-sm-12">
     <%= f.submit @item.new_record? ? 'Create Item' : 'Update Item',
                  class: 'btn btn-primary btn-lg btn-block' %>
     <% if !@item.new_record? && policy(@item).destroy? %>
