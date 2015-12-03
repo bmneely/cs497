@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resource :blog, only: :show
   end
 
-  resources :blog, only: [] do
+  resources :blogs, only: [] do
     resources :posts
   end
 

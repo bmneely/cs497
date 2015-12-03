@@ -1,0 +1,30 @@
+<%= form_for(@post, url: @post.new_record? ? blog_posts_path(@post.blog) : blog_post_path(@post.blog, @post)) do |f| %>
+  <%= render 'layouts/form_error', record: @post %>
+
+  <div class="row">
+    <div class="form-group col-sm-12">
+      <%= f.label :title, class: 'text-muted' %>
+      <%= f.text_field :title, placeholder: 'My Post', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-12">
+      <%= f.label :body, class: 'text-muted' %>
+      <%= f.text_area :body, rows: 15, placeholder: 'Lorem ipsum dolor sit amet, ut alia erat eos, id debet prompta est. Vis te saepe euripidis. Per cu quem feugiat gubergren, ex hinc quidam per. Agam dolore omittantur sit at, mel ex feugiat apeirian legendos, qui aeterno facilis et. Augue tractatos an pro, amet augue inani ne eam. Vis purto omittam te, fabulas dolorem postulant an mei.', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="actions form-group col-sm-12">
+    <%= f.submit @post.new_record? ? 'Create Post' : 'Update Post',
+                 class: 'btn btn-primary btn-lg btn-block' %>
+    <% if !@post.new_record? && policy(@post).destroy? %>
+      <br>
+      <%= link_to "Delete Post",
+                  [@post.blog, @post],
+                  method: :delete,
+                  class: 'btn btn-danger btn-lg btn-block',
+                  data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,4 +1,5 @@
-<%= form_for(@item, url: store_items_path(@item.store)) do |f| %>
+<%= form_for(@item, url: @item.new_record? ? store_items_path(@item.store) : item_path(@item)) do |f| %>
+
   <%= render 'layouts/form_error', record: @item %>
 
   <div class="row">
@@ -43,7 +44,7 @@
       <br>
       <%= link_to "Delete Item",
                   store_item_path(@item.store),
-                  action: :destory,
+                  method: :delete,
                   class: 'btn btn-danger btn-lg btn-block',
                   data: { confirm: 'Are you sure?' } %>
     <% end %>

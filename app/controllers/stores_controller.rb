@@ -38,7 +38,6 @@ class StoresController < ApplicationController
     end
   end
 
-
   def store_params
     params.require(:store).permit(:name, :description, :storefront, :storefront_cache, :facebook_url, :instagram_url, :twitter_url, :tumblr_url)
   end

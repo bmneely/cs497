@@ -1,10 +1,22 @@
-<div class="row well-white">
-  <div class="col-sm-10">
-    <h1 class="center-my-children"><%= @item.store.name %> </h1>
-    <div class="container">
-      <h2 class="text-muted">Edit <%= @item.name %></h1>
-      <%= render 'items/form' %>
+<div class="contiainer">
+  <div class="row well-white">
+    <div class="col-sm-10">
+      <h1 class="center-my-children">
+        <%= @store.name %>
+      </h1>
+      <div class="col-sm-6">
+        <%= image_tag(@store.storefront.url(:preview), class: 'blog-storefront') if @store.storefront? %>
+      </div>
+      <div class="col-sm-6">
+        <em><%= @store.description %></em>
+      </div>
+      <div class="col-sm-12">
+        <h2 class="text-muted">Edit <%= @item.name %></h1>
+        <%= render 'items/form' %>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <%= render partial: 'stores/side_bar', locals: { store: @store } %>
     </div>
   </div>
-  <%= render partial: 'stores/side_bar', locals: { store: @item.store } %>
 </div>

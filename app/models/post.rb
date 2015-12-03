@@ -12,4 +12,7 @@
 
 class Post < ActiveRecord::Base
   belongs_to :blog
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 end

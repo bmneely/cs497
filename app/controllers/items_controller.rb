@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.friendly.find(params[:id])
+    @store = @item.store
   end
 
   def update
