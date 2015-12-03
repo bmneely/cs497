@@ -2,6 +2,7 @@
   <ul class="nav">
     <li>
       <%= link_to 'Home', store, class: 'btn btn-block room-on-top' %>
+      <%= link_to 'Blog', [store, store.blog] %>
       <% if policy(Favorite.new).create? %>
         <%= render partial: 'favorites/favorite', locals: { store: store } %>
       <% end %>

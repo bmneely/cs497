@@ -1,0 +1,23 @@
+<div class="contiainer">
+  <div class="row well-white">
+    <div class="col-sm-10">
+      <h1 class="center-my-children">
+        <%= @store.name %> Blog
+      </h1>
+      <div class="col-sm-4">
+        <%= image_tag(@store.storefront.url(:preview), class: 'blog-storefront') if @store.storefront? %>
+      </div>
+      <div class="col-sm-8">
+        <em><%= @store.description %></em>
+      </div>
+      <div class="col-sm-12">
+        <h1>
+          Posts
+        </h1>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <%= render partial: 'stores/side_bar', locals: { store: @store } %>
+    </div>
+  </div>
+</div>

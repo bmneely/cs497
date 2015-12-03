@@ -19,6 +19,7 @@ class Store < ActiveRecord::Base
   belongs_to :user
   has_many :items, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_one :blog
 
   mount_uploader :storefront, StorefrontUploader
 
@@ -32,4 +33,8 @@ class Store < ActiveRecord::Base
   validates_format_of :instagram_url, :with => URI::regexp(%w(http https)), allow_blank: true
   validates_format_of :twitter_url, :with => URI::regexp(%w(http https)), allow_blank: true
   validates_format_of :tumblr_url, :with => URI::regexp(%w(http https)), allow_blank: true
+
+  def blog
+    super || create_blog
+  end
 end

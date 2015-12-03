@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130003937) do
+ActiveRecord::Schema.define(version: 20151203025316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(version: 20151130003937) do
     t.string   "state"
     t.integer  "zip"
     t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.integer  "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -104,6 +110,16 @@ ActiveRecord::Schema.define(version: 20151130003937) do
 
   add_index "items", ["slug"], name: "index_items_on_slug", unique: true, using: :btree
 
+  create_table "posts", force: :cascade do |t|
+    t.integer  "blog_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "posts", ["blog_id"], name: "index_posts_on_blog_id", using: :btree
+
   create_table "purchased_items", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "item_id"
@@ -163,6 +179,7 @@ ActiveRecord::Schema.define(version: 20151130003937) do
   add_foreign_key "customers", "users"
   add_foreign_key "favorites", "stores"
   add_foreign_key "favorites", "users"
+  add_foreign_key "posts", "blogs"
   add_foreign_key "purchased_items", "items"
   add_foreign_key "purchased_items", "users"
 end

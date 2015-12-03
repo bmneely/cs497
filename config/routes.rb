@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   resources :stores, except: [:new, :create] do
     resources :items, only: [:create, :new]
     resources :favorites, only: [:create, :destroy]
+    resource :blog, only: :show
+  end
+
+  resource :blog, only: [] do
+    resources :posts
   end
 
   resources :items, except: [:create, :new] do
