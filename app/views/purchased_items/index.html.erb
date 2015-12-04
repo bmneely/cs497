@@ -22,7 +22,7 @@
                   <h4><%= number_to_currency(purchased_item.price, unit: "$") %></h4>
                 </td>
                 <td class="btn-group">
-                  <%= link_to "#{purchased_item.item.store.name} Store", store_path(purchased_item.item.store), class: 'btn btn-default' %>
+                  <%= link_to purchased_item.item.store.name, store_path(purchased_item.item.store), class: 'btn btn-default' %>
                 </td>
               </tr>
             <% end %>
